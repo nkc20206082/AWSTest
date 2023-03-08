@@ -6,8 +6,11 @@ using UnityEngine;
 using UnityEngine.Networking;
 public class unitytoaws : MonoBehaviour
 {
-    [SerializeField] private string ID;//ó~ÇµÇ¢èÓïÒÇÃID
+    private string ID;//ó~ÇµÇ¢èÓïÒÇÃID
     [SerializeField] private DynamoResponse response;//ï‘Ç¡ÇƒÇ´ÇΩÇ‡ÇÃÇï\é¶Ç∑ÇÈ
+    [SerializeField] private GameObject Rawimage;
+    [SerializeField] private GameObject TryButton;
+    [SerializeField] private GameObject RetryButton;
     [SerializeField] Manager Manager;
 
     public string URL;//URLÇì¸ÇÍÇÈÇÊÇ§
@@ -36,8 +39,9 @@ public class unitytoaws : MonoBehaviour
     }
 
     [Obsolete]
-    void Start()
+    public void Startacces()
     {
+        ID = UnityEngine.Random.Range(1,8).ToString();
         StartCoroutine(AwsApiTest());
     }
 
@@ -69,6 +73,9 @@ public class unitytoaws : MonoBehaviour
         {
             if (request.responseCode == 200)
             {
+                TryButton.SetActive(false);
+                Rawimage.SetActive(true);
+                RetryButton.SetActive(true);
                 var responseJsonText = request.downloadHandler.text;
                 Debug.Log(responseJsonText);
                 response = JsonUtility.FromJson<DynamoResponse>(responseJsonText);
