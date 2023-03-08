@@ -7,7 +7,7 @@ using UnityEngine.Networking;
 public class unitytoaws : MonoBehaviour
 {
     [SerializeField] private string ID;//—~‚µ‚¢î•ñ‚ÌID
-    [SerializeField] private DynamoResponse response;//‹A‚Á‚Ä‚«‚½‚à‚Ì‚ğ•\¦‚·‚é
+    [SerializeField] private DynamoResponse response;//•Ô‚Á‚Ä‚«‚½‚à‚Ì‚ğ•\¦‚·‚é
     [SerializeField] Manager Manager;
 
     public string URL;//URL‚ğ“ü‚ê‚é‚æ‚¤
