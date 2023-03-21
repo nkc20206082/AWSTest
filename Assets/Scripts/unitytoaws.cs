@@ -6,14 +6,14 @@ using UnityEngine;
 using UnityEngine.Networking;
 public class unitytoaws : MonoBehaviour
 {
-    private string ID;//�~��������ID
-    [SerializeField] private DynamoResponse response;//�Ԃ��Ă������̂�\������
+    private string ID;//欲しい情報のID
+    [SerializeField] private DynamoResponse response;//返ってきたものを表示する
     [SerializeField] private GameObject Rawimage;
     [SerializeField] private GameObject TryButton;
     [SerializeField] private GameObject RetryButton;
     [SerializeField] Manager Manager;
 
-    public string URL;//URL������悤
+    public string URL;//URLを入れるよう
 
     [Serializable]
     public class DynamoIftest
@@ -22,7 +22,7 @@ public class unitytoaws : MonoBehaviour
         [Serializable]
         public class DynamoQueryKey
         {
-            public string ID;//�N�G���Ɏg���L�[
+            public string ID;//クエリに使うキー
         }
     }
 
@@ -33,8 +33,8 @@ public class unitytoaws : MonoBehaviour
         [Serializable]
         public class DynamoResponseItems
         {
-            public string ID;//�擾ID
-            public string URL;//�擾URL
+            public string ID;//取得ID
+            public string URL;//取得URL
         }
     }
 
@@ -56,7 +56,7 @@ public class unitytoaws : MonoBehaviour
 
         var request = new UnityWebRequest();
 
-        request.url = "https://ahcjrkat0j.execute-api.ap-northeast-1.amazonaws.com/prod";//API�Q�[�g�E�F�C�Ƃ̒ʐM
+        request.url = "APIゲートウェイのURL";//APIゲートウェイとの通信
         var body = Encoding.UTF8.GetBytes(jsonStr);
         request.uploadHandler = new UploadHandlerRaw(body);
         request.downloadHandler = new DownloadHandlerBuffer();
